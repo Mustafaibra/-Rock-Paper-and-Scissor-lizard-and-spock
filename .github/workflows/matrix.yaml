@@ -1,0 +1,16 @@
+name: matrix job
+on:
+  push:
+    branches:
+      - feature/matrix
+
+jobs:
+  do-things:
+    name: do things in matrix ${{ matrix.os}}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: i will echo do my work on this matrix ${{ matrix.os }}
+        run: echo "I've done a thing on ${{ matrix.os }}!"
