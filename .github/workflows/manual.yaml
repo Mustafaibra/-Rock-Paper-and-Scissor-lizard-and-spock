@@ -1,0 +1,26 @@
+name: manul workflow
+on:
+  workflow_diispatch:
+    inputs:
+      choise-example:
+        description: 'choise an example'
+        required: true
+        default: warning
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+        string-example:
+          description: 'string example'
+          required: true
+          default: input
+          type: string
+jobs:
+  do-things:
+    name: do things 
+    runs-on: ubuntu-latest
+    steps:
+      - name: do a thing
+        run: echp "I've done a thing manually with '${{ inputs.choice-example }}' and '${{ inputs.string-example }}'!"
+
