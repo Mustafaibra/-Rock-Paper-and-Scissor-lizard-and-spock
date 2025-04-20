@@ -6,11 +6,17 @@ on:
 
 jobs:
   do-things:
-    name: do things in matrix ${{ matrix.os}}
+    name: do things in matrix ${{ matrix.os}}  and -- ${{ matrix.node-version }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [10.x, 12.x, 14.x, 15.x]
     steps:
       - name: i will echo do my work on this matrix ${{ matrix.os }}
         run: echo "I've done a thing on ${{ matrix.os }}!"
+    steps:
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
