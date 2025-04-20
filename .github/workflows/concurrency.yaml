@@ -14,5 +14,5 @@ jobs:
       # The result will be that one workflow execution (whichever is triggered first) will cancel when the second is queued because they are in the same concurrency group.
     steps:
       - name: i will echo ur name 
-        run: echo "hello my little frind ${{ github.sha }}";sleep 10;
+        run: echo "hello my little frind ${{ github.actor }}";sleep 10;
     
