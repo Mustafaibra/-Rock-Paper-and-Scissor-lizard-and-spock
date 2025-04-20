@@ -13,4 +13,4 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: i will echo ur sha
-        run: echo "hello my little frind ${{ github.sha }}";sleep 10;
+        run: echo "hello my little frind ${{ github.actor }}";sleep 10;
