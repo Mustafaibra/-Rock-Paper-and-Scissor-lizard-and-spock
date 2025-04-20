@@ -1,6 +1,6 @@
 name: manul workflow
 on:
-  workflow_diispatch:
+  workflow_dispatch:
     inputs:
       choise-example:
         description: 'choise an example'
