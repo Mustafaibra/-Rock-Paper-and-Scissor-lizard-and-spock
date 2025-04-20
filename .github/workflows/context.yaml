@@ -11,7 +11,9 @@ jobs:
       - name: dump env info
         env:
           CONTEXT_ITEM: ${{ toJson(github) }}
-        run: echo "this is githup context ${{ CONTEXT_ITEM }}"
+        run: |
+          echo "this is the owner ${{ github.actor }}"
+          echo "this is githup context ${ CONTEXT_ITEM }"
       - name: dump job info
         env:
           CONTEXT_JOB_ITEM: ${{ toJson(job) }}
