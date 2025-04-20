@@ -1,7 +1,7 @@
 name: issues workflow
 on:
   issues:
-    types: [opned]
+    types: [opened]
 
 jobs:
   playing-with-issues:
@@ -10,6 +10,6 @@ jobs:
     steps:
       - name: priting isssue info
         env:
-          EVENT_NAME: ${{ githup.event_name }}
+          EVENT_NAME: ${{ github.event_name }}
           EVENT_ACTION: ${{ github.event.action }}
         run: echo " the action is ${{ github.event.action }} and the event name is ${{ github.event_name }}"
