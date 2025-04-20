@@ -13,10 +13,8 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         node-version: [10.x, 12.x, 14.x, 15.x]
     steps:
-      - name: i will echo do my work on this matrix ${{ matrix.os }}
-        run: echo "I've done a thing on ${{ matrix.os }}!"
-    steps:
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }} on os ':'' ${{ matrix.os }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      
