@@ -2,7 +2,7 @@ name: Env vars
 on:
   push:
     branches:
-      - feature/env-vars
+      - feature/global-env
 env:
   GLOBAL_VAR: this is mustafa testing
 jobs:
