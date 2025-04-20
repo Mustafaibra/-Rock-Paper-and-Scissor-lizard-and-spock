@@ -22,6 +22,11 @@ jobs:
         env:
           CONTEXT_RUNNER_ITEM: ${{ toJson(runner) }}
         run: echo "this is runner info ${CONTEXT_RUNNER_ITEM}"
+      - name: add some outputs 
+        id: steps-output
+        run: |
+          echo "TRUE_STATE=rats are tirrable" >> $GITHUB_CUSTOM_OUTPUT
+          echo "${GITHUB_CUSTOM_OUTPUT}"
       - name: dump steps info
         env:
           CONTEXT_STEP_ITEM: ${{ toJson(steps) }}
