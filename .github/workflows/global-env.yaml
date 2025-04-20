@@ -1,0 +1,22 @@
+name: Env vars 
+on:
+  push:
+    branches:
+      - feature/env-vars
+env:
+  GLOBAL_VAR: this is mustafa testing
+jobs:
+  first-job: 
+    name: a job
+    runs-on: ubuntu-latest
+    steps:
+      - name: printing the globla var
+        run: echo ${GLOBAL_VAR}
+  second-job:
+    name: secondjob
+    runs-on: ubuntu-latest
+    steps:
+      - name: playing with global var 
+        env:
+          GLOBAL_VAR: this is a new value
+        run: echo ${GLOBAL_VAR}
