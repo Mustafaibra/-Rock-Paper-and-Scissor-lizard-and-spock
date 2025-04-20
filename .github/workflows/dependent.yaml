@@ -10,4 +10,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: dump job info
-        run: echo " this is job info ${{ toJson(job) }}"
+        env:
+          CONTEXT_JOB_INFO: ${{ toJson(job)}}
+          GITHUB_OUTPUT : no one need u 
+        run: echo " this is job info ${CONTEXT_JOB_INFO}"
+  second-job:
+    name: Second Job
+    runs-on: ubuntu-latest
+    needs: first-job
+    steps:
+      - name: dump steps info
+        env:
+          CONTEXT_STEPS_INFO: ${{ toJson(steps)}}
+        run: echo " this is job info ${CONTEXT_STEPS_INFO}"
+  thired-job:
+    name: Thired Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: dump runner info     
+        env:
+          CONTEXT_RUNNER_INFO: ${{ toJson(runner)}}
+        run: echo " this is job info ${CONTEXT_RUNNER_INFO}"
