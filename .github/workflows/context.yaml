@@ -27,6 +27,7 @@ jobs:
         run: |
           echo "TRUE_STATE=rats are tirrable" >> $GITHUB_OUTPUT
           echo "${GITHUB_OUTPUT}"
+          echo "${{ GITHUB_OUTPUT }}"
       - name: dump steps info
         env:
           CONTEXT_STEP_ITEM: ${{ toJson(steps) }}
