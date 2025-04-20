@@ -11,7 +11,7 @@ jobs:
       - name: dump env info
         env:
           CONTEXT_ITEM: ${{ toJson(github) }}
-        run: echo "this is githup context ${{ CONTEXT_ENV_ITEM }}"
+        run: echo "this is githup context ${{ CONTEXT_ITEM }}"
       - name: dump job info
         env:
           CONTEXT_JOB_ITEM: ${{ toJson(job) }}
@@ -32,3 +32,4 @@ jobs:
         env:
           CONTEXT_MATRIX_ITEM: ${{ toJson(matrix) }}
         run: echo "this is matrix context ${{ CONTEXT_MATRIX_ITEM }}"
+      - name: dump secrets info
