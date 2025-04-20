@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: i will echo ur name 
-        run: echo "hello my little frind"
-      - name: i will do an error 
+        run: echo "hello my little frind {{ github.actor }}"
+      - name: i will do an error from {{ github.repository_owner  }}
         run: |
           echo "hello i will do error now"
           exit 1
