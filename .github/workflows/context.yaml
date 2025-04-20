@@ -20,8 +20,8 @@ jobs:
         run: echo "this is job context ${CONTEXT_JOB_ITEM}"
       - name: dump runner info
         env:
-          CONTEXT_RUNNER_ITEM: ${{ TOjSON(runner) }}
-        run: ehco "this is runner info ${CONTEXT_RUNNER_ITEM}"
+          CONTEXT_RUNNER_ITEM: ${{ toJson(runner) }}
+        run: echo "this is runner info ${CONTEXT_RUNNER_ITEM}"
       - name: dump steps info
         env:
           CONTEXT_STEP_ITEM: ${{ toJson(steps) }}
