@@ -16,9 +16,9 @@ on:
         required: true
         default: input
         type: string
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
 jobs:
   do-things:
     name: do things 
@@ -27,3 +27,14 @@ jobs:
       - name: do a thing
         run: echo "I've done a thing manually with ${{ github.event.inputs.choice-example }} and ${{ github.event.inputs.string-example }}!"
 
+# curl -X POST \
+#   -H "Accept: application/vnd.github+json" \
+#   -H "Authorization: Bearer <TOKEN>" \
+#   https://api.github.com/repos/Mustafaibra/github-actions-practices/actions/workflows/manual.yaml/dispatches \
+#   -d '{
+#     "ref": "main",
+#     "inputs": {
+#       "choice-example": "warning",
+#       "string-example": "input"
+#     }
+#   }'
