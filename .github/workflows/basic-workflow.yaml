@@ -12,5 +12,6 @@ jobs:
       - name: i will echo ur name 
         run: echo "hello my little frind"
       - name: i will do an error 
-        run: echo "hello i will do error now"
-        run: exit 1
+        run: |
+          echo "hello i will do error now"
+          exit 1
