@@ -1,0 +1,18 @@
+name: concurrency job 1
+on:
+  push:
+    branches:
+      - feature/concurrency
+
+jobs:
+  do-things:
+    name: do stff
+    runs-on: ubuntu-latest
+    concurrency: 
+      group: static-group
+      cancel-in-progress: true
+      # The result will be that one workflow execution (whichever is triggered first) will cancel when the second is queued because they are in the same concurrency group.
+    steps:
+      - name: i will echo ur name 
+        run: echo "hello my little frind ${{ github.actor }}";sleep 10;
+    
