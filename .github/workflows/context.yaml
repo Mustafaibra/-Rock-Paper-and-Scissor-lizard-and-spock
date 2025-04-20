@@ -13,25 +13,25 @@ jobs:
           CONTEXT_ITEM: ${{ toJson(github) }}
         run: |
           echo "this is the owner ${{ github.actor }}"
-          echo "this is githup context ${ CONTEXT_ITEM }"
+          echo "this is githup context ${CONTEXT_ITEM}"
       - name: dump job info
         env:
           CONTEXT_JOB_ITEM: ${{ toJson(job) }}
-        run: echo "this is job context ${ CONTEXT_JOB_ITEM }"
+        run: echo "this is job context ${CONTEXT_JOB_ITEM}"
       - name: dump runner info
         env:
           CONTEXT_RUNNER_ITEM: ${{ TOjSON(runner) }}
-        run: ehco "this is runner info ${ CONTEXT_RUNNER_ITEM }"
+        run: ehco "this is runner info ${CONTEXT_RUNNER_ITEM}"
       - name: dump steps info
         env:
           CONTEXT_STEP_ITEM: ${{ toJson(steps) }}
-        run: echo "this is steps context ${ CONTEXT_STEP_ITEM }"
+        run: echo "this is steps context ${CONTEXT_STEP_ITEM}"
       - name: dump strategy info 
         env:
           CONTEXT_STRATEGY_ITEM: ${{ toJson(strategy) }}
-        run: echo "this is strategy context ${ CONTEXT_STRATEGY_ITEM }"
+        run: echo "this is strategy context ${CONTEXT_STRATEGY_ITEM}"
       - name: dump matrix info
         env:
           CONTEXT_MATRIX_ITEM: ${{ toJson(matrix) }}
-        run: echo "this is matrix context ${ CONTEXT_MATRIX_ITEM }"
+        run: echo "this is matrix context ${CONTEXT_MATRIX_ITEM}"
       
