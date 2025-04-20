@@ -2,7 +2,7 @@ name: manul workflow
 on:
   workflow_dispatch:
     inputs:
-      choise-example:
+      choice-example :
         description: 'choise an example'
         required: true
         default: warning
@@ -16,11 +16,14 @@ on:
           required: true
           default: input
           type: string
+  push:
+    branches:
+      - main
 jobs:
   do-things:
     name: do things 
     runs-on: ubuntu-latest
     steps:
       - name: do a thing
-        run: echo "I've done a thing manually with ${{ inputs.choice-example }} and ${inputs.string-example}!"
+        run: echo "I've done a thing manually with ${{ inputs.choice-example }} and ${{ inputs.string-example }}!"
 
