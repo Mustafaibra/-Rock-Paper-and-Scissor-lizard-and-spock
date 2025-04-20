@@ -1,0 +1,16 @@
+name: concurrency job 1
+on:
+  push:
+    branches:
+      - feature/concurrency
+
+jobs:
+  do-things:
+    name: do stff
+    runs-on: ubuntu-latest
+    concurrency: 
+      group: static-group
+    steps:
+      - name: i will echo ur name 
+        run: echo "hello my little frind ${{ github.actor }}";sleep 10;
+    

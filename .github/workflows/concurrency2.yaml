@@ -1,0 +1,15 @@
+name: concurrency job 2
+on:
+  push:
+    branches:
+      - feature/concurrency
+
+jobs:
+  do-things:
+    name: do other staff with concrency 
+    runs-on: ubuntu-latest
+    concurrency: 
+      group: static-group
+    steps:
+      - name: i will echo ur sha
+        run: echo "hello my little frind ${{ github.sha }}";sleep 10;
