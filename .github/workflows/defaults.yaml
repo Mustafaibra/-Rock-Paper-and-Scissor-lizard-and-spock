@@ -17,7 +17,8 @@ jobs:
         shell: python
         working-directory: src
       - name: Use Bash
-        env: MYVAR= $(pwd)
+        env: 
+          MYVAR : $(pwd)
         run: echo "I'm running hum-drum bash in ${MYVAR}. Booo."
         shell: bash
         working-directory: src
