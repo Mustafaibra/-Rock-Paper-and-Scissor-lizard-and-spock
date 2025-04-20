@@ -1,0 +1,13 @@
+name: Dependent Jobs 
+on:
+  push:
+    branches:
+      - feature/dependent
+
+jobs:
+  first-job:
+    name: First Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: dump job info
+        run: echo " this is job info ${{ toJson(job) }}"
