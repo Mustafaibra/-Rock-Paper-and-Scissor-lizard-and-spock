@@ -1,7 +1,7 @@
 name: issues workflow
 on:
   issues:
-    types: [opned]
+    types: [opened]
 
 jobs:
   playing-with-issues:
