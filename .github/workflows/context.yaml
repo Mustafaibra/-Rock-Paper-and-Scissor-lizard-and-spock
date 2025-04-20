@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: dump env info
         env:
-          CONTEXT_ENV_ITEM: ${{ toJson(github) }}
+          CONTEXT_ITEM: ${{ toJson(github) }}
         run: echo "this is githup context ${{ CONTEXT_ENV_ITEM }}"
       - name: dump job info
         env:
