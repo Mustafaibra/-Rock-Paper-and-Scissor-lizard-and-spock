@@ -1,0 +1,14 @@
+name : first workflow 
+on:
+  push:
+    branches:
+      - feature/basic-workflow
+
+jobs:
+  do-things:
+    name: do stff
+    runs-on: ubuntu-latest
+    steps:
+      - name: i will echo ur name 
+        run: echo "hello my little frind"
+        
