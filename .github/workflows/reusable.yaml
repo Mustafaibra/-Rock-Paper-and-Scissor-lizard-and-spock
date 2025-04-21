@@ -1,0 +1,40 @@
+name: reusable wf
+on:
+  workflow_dispatch:
+    inputs:
+      choies-example:
+        description: 'choise an example'
+        required: true
+        default: warning
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      string-example:
+        description: String Example
+        required: true
+        default: input
+        type: string
+  workflow_call:
+    inputs:
+      choice-example:
+        description: Choice Example
+        required: true
+        default: warning
+        type: string
+      string-example:
+        description: String Example
+        required: true
+        default: input
+        type: string
+
+jobs:
+  do-things:
+    name: do stuff
+    runs-on: ubuntu-latest
+    steps:
+      - name: do a thing
+        run: echo "I've done a thing manually with ${{ github.event.inputs.choice-example }} and ${{ github.event.inputs.string-example }}!"
+      - name: do a thing
+        run: echo "I've done a thing manually with ${{ inputs.choice-example }} and ${{ inputs.string-example }}!":
