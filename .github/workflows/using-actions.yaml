@@ -8,6 +8,8 @@ jobs:
   do-things:
     name: doing action things 
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - name: list dir content
         run: ls -latr
