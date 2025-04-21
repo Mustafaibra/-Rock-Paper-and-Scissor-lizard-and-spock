@@ -1,16 +1,16 @@
-name: reusable wf
+name: Manual & Shared Workflow
 on:
   workflow_dispatch:
     inputs:
-      choies-example:
-        description: 'choise an example'
+      choice-example:
+        description: Choice Example
         required: true
         default: warning
         type: choice
         options:
-          - info
-          - warning
-          - debug
+        - info
+        - warning
+        - debug
       string-example:
         description: String Example
         required: true
@@ -28,13 +28,10 @@ on:
         required: true
         default: input
         type: string
-
 jobs:
   do-things:
-    name: do stuff
+    name: Do Things Manually
     runs-on: ubuntu-latest
     steps:
-      - name: do a thing
-        run: echo "I've done a thing manually with ${{ github.event.inputs.choice-example }} and ${{ github.event.inputs.string-example }}!"
-      - name: do a thing
-        run: echo "I've done a thing manually with ${{ inputs.choice-example }} and ${{ inputs.string-example }}!"
+      - name: Do A Thing
+        run: echo "I've done a thing manually with '${{ inputs.choice-example }}' and '${{ inputs.string-example }}'!"
