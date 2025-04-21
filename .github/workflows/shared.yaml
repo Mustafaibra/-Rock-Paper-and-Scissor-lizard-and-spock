@@ -1,0 +1,12 @@
+name: using reusable workflows
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  centralized-job:
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      string-example: sasa
+      choice-example: debug
