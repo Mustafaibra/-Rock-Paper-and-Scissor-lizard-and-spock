@@ -1,0 +1,17 @@
+name: using actions
+on:
+  push:
+    branches:
+      - feature/using-actions
+
+jobs:
+  do-things:
+    name: doing action things 
+    runs-on: ubuntu-latest
+    steps:
+      - name: list dir content
+        run: ls -latr
+      - name: check out code
+        uses: actions/checkout@v3
+      - name: list dir again
+        run: ls -latr
