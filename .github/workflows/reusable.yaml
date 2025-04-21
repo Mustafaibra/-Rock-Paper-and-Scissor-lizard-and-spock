@@ -37,4 +37,4 @@ jobs:
       - name: do a thing
         run: echo "I've done a thing manually with ${{ github.event.inputs.choice-example }} and ${{ github.event.inputs.string-example }}!"
       - name: do a thing
-        run: echo "I've done a thing manually with ${{ inputs.choice-example }} and ${{ inputs.string-example }}!":
+        run: echo "I've done a thing manually with ${{ inputs.choice-example }} and ${{ inputs.string-example }}!"
