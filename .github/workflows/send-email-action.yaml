@@ -18,9 +18,9 @@ jobs:
       - name: using the mail action
         uses: Mustafaibra/Email-Notification-on-releases-github-practies@main
         with:
-          subject: ${{ env.SUBJECT }}
-          from-email: ${{ env.FROM_EMAIL }}
-          to-email: ${{ env.TO_EMAIL }}
+          subject: ${SUBJECT}
+          from-email: ${FROM_EMAIL}
+          to-email: ${TO_EMAIL}
           markdown-body: ${{ github.event.release.body }}
           api-key: ${{ secrets.EMAIL_API_KEY}}
 
