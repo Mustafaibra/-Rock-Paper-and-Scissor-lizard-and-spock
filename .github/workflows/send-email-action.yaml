@@ -11,6 +11,18 @@ env:
   FROM_EMAIL: mi156225@gmail.com
   TO_EMAIL: swe.mustafaibrahim@gmail.com
 jobs:
+  show-mial-info:
+    name: show mail info
+    runs-on: ubuntu-latest
+    steps:
+      - name: print the mail info
+        run: |
+          echo "subject: ${SUBJECT}"
+          echo "from-email: ${FROM_EMAIL}"
+          echo "to-email: ${TO_EMAIL}"
+          echo "markdown-body: ${{ github.event.release.body }}"
+          echo "api-key: ${{ secrets.EMAIL_API_KEY }}"
+  # this is the job that will send the email
   send-mail:
     name: send mail
     runs-on: ubuntu-latest
@@ -22,7 +34,9 @@ jobs:
           from-email: ${FROM_EMAIL}
           to-email: ${TO_EMAIL}
           markdown-body: ${{ github.event.release.body }}
-          api-key: ${{ secrets.EMAIL_API_KEY}}
+          api-key: ${{ secrets.EMAIL_API_KEY}
+      
+        
 
           
 
