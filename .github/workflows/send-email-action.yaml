@@ -1,4 +1,4 @@
-name: this wf will using the send-email-action
+name: this wf  will using the send-email-action
 on:
   release:
     types: 
@@ -23,4 +23,6 @@ jobs:
           to-email: ${{ env.TO_EMAIL }}
           markdown-body: ${{ github.event.release.body }}
           api-key: ${{ secrets.EMAIL_API_KEY}}
+
+          
 
