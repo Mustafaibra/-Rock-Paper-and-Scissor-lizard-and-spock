@@ -35,7 +35,7 @@ jobs:
           subject: ${SUBJECT}
           from-email: ${FROM_EMAIL}
           to-email: ${TO_EMAIL}
-          markdown-body: ${{ github.event.release.body }}
+          markdown-body: ${{ github.actor }}
           
       
         
