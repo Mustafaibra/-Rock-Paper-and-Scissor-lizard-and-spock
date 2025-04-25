@@ -31,11 +31,12 @@ jobs:
       - name: using the mail action
         uses: Mustafaibra/Email-Notification-on-releases-github-practies@main
         with:
+          api-key: ${{ secrets.EMAIL_API_KEY}}
           subject: ${SUBJECT}
           from-email: ${FROM_EMAIL}
           to-email: ${TO_EMAIL}
           markdown-body: ${{ github.event.release.body }}
-          api-key: ${{ secrets.EMAIL_API_KEY}}
+          
       
         
 
