@@ -10,6 +10,7 @@ env:
   SUBJECT: "New Release ${{ github.repository }}:${{ github.ref_name }}"
   FROM_EMAIL: mi156225@gmail.com
   TO_EMAIL: swe.mustafaibrahim@gmail.com
+
 jobs:
   show-mial-info:
     name: show mail info
@@ -34,7 +35,7 @@ jobs:
           from-email: ${FROM_EMAIL}
           to-email: ${TO_EMAIL}
           markdown-body: ${{ github.event.release.body }}
-          api-key: ${{ secrets.EMAIL_API_KEY}
+          api-key: ${{ secrets.EMAIL_API_KEY}}
       
         
 
