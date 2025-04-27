@@ -35,12 +35,17 @@ jobs:
       - name: debug
         env:
           CONTEXT_ITEM: ${{ toJson(steps) }}
+          lll: ${{ steps.go-paths.outputs.gomodcache }}
+          ggg: ${{join(steps.go-paths.outputs.*, '\n')}}
+          sss: $(echo ${{ steps.go-paths.outputs.gomodcache }})
         run : |
           echo "Go version: $(go version)"
           echo "GOMODCACHE: $(go env GOMODCACHE || echo 'Not set')"
           echo "GOCACHE: $(go env GOCACHE || echo 'Not set')"
           echo " ${{ steps.go-paths.outputs.gomodcache }}"
-          echo "${CONTEXT_ITEM}"
+          echo "${lll}"
+          echo "${ggg}"
+          echo "${sss}"
 
           
 
