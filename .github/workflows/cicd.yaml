@@ -23,7 +23,6 @@ jobs:
           echo " gocache=$(go env GOCACHE)" >> $GITHUB_OUTPUT
       - name: clone 
         uses: actions/checkout@v3.1.0
-        run: echo " toJson(steps)" 
       - name: caching 
         uses: actions/cache@v3
         with:
@@ -32,7 +31,9 @@ jobs:
             ${{ steps.path-setup.outputs.gocache }}
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
       - name: get dep
-        run: go get app
+        run: |
+          go get app
+          echo " toJson(steps)" 
       - name: building 
         run: go build
       - name: run linting 
