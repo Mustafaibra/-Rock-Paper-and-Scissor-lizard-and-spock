@@ -37,8 +37,8 @@ jobs:
           echo "Go version: $(go version)"
           echo "GOMODCACHE: $(go env GOMODCACHE || echo 'Not set')"
           echo "GOCACHE: $(go env GOCACHE || echo 'Not set')"
-          echo "All env vars:"
-          go env
+          echo " ${{ steps.go-paths.outputs.gomodcache }}"
+          echo " ${steps.go-paths.outputs.gocache}"
 
       - name: caching 
         uses: actions/cache@v4
