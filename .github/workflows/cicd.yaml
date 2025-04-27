@@ -32,8 +32,10 @@ jobs:
       - name: clone 
         uses: actions/checkout@v3.1.0
       - name: debug
+        env:
+          CONTEXT_ITEM: $(go env GOMODCACHE)
         run :
-          echo " $(go env GOCACHE)"
+          echo "${CONTEXT_ITEM}"
           echo " ${{ steps.go-paths.outputs.gomodcache }}"
           echo " ${{ steps.go-paths.outputs.gocache }}"
 
