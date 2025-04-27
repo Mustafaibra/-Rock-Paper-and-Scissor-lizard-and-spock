@@ -36,7 +36,7 @@ jobs:
         env:
           CONTEXT_ITEM: ${{ toJson(steps) }}
           lll: ${{ (steps.go-paths.outputs.gomodcache) }}
-          aaa: ${{ $(steps.go-paths.outputs.gomodcache) }}
+          
           ggg: ${{join(steps.go-paths.outputs.*, '\n')}}
           sss: $(steps.go-paths.outputs.gomodcache)
         run : |
@@ -47,7 +47,7 @@ jobs:
           echo "${lll}"
           echo "${ggg}"
           echo "${sss}"
-          echo "${aaa}"
+          
           
 
       - name: caching 
