@@ -38,15 +38,11 @@ jobs:
           lll: ${{ (steps.go-paths.outputs.gomodcache) }}
           
           ggg: ${{join(steps.go-paths.outputs.*, '\n')}}
-          sss: ${{join(steps.go-paths.outputs.gomodcache, ' ')}}
+          sss: ${{join(steps.go-paths.outputs.gomodcache, '\n')}}
         run : |
-          echo "Go version: $(go version)"
-          echo "GOMODCACHE: $(go env GOMODCACHE || echo 'Not set')"
-          echo "GOCACHE: $(go env GOCACHE || echo 'Not set')"
-          echo " ${{ steps.go-paths.outputs.gomodcache }}"
-          echo "${lll}"
-          echo "${ggg}"
-          echo "${sss}"
+          echo '${{ toJson(steps.go-paths.outputs) }}'
+          echo '${{ toJson(steps.go-paths.outputs.gomodcache) }}'
+          echo '${{ steps.go-paths.outputs.gomodcache }}'
           
           
 
