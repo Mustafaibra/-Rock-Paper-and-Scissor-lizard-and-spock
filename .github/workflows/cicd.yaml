@@ -27,3 +27,8 @@ jobs:
           working-directory: golang_app
       - name: run tests
         run: go test   
+      - name: uploading artifact 
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ github.event_name }}-${{ github.run_id }}-${{ github.run_attempt }}-golang_app
+          path: golang_app/app
