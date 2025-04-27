@@ -32,12 +32,12 @@ jobs:
       - name: clone 
         uses: actions/checkout@v3.1.0
       - name: debug
-        env:
-          CONTEXT_ITEM: $(go env GOMODCACHE)
-        run :
-          echo "${CONTEXT_ITEM}"
-          echo " ${{ steps.go-paths.outputs.gomodcache }}"
-          echo " ${{ steps.go-paths.outputs.gocache }}"
+        run : |
+          echo "Go version: $(go version)"
+          echo "GOMODCACHE: $(go env GOMODCACHE || echo 'Not set')"
+          echo "GOCACHE: $(go env GOCACHE || echo 'Not set')"
+          echo "All env vars:"
+          go env
 
       - name: caching 
         uses: actions/cache@v4
