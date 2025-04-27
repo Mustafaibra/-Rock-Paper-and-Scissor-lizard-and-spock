@@ -28,7 +28,7 @@ jobs:
         run: |
           echo " ${{ github.workspace }}"
           echo " gomodcache = $(go env GOMODCACHE)" >> $GITHUB_OUTPUT
-          echo " gocache = $(go env GOCACHE)" >> $GITHUB_OUTPU
+          echo " gocache = $(go env GOCACHE)" >> $GITHUB_OUTPUT
           cat "${GITHUB_OUTPUT}"
       - name: clone 
         uses: actions/checkout@v3.1.0
