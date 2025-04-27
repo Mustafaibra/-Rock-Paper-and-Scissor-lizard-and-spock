@@ -16,6 +16,7 @@ jobs:
         working-directory: golang_app
     steps:
       - name: path setup for caching 
+        id: go-paths
         working-directory: ${{ github.workspace }}
         run: |
           echo " ${{ github.workspace }}"
@@ -27,13 +28,15 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ${{ steps.path-setup.outputs.gomodcache }}
-            ${{ steps.path-setup.outputs.gocache }}
+            ${{ steps.go-paths.outputs.gomodcache }}
+            ${{ steps.go-paths.outputs.gocache }}
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
       - name: get dep
+        env:
+          CONTEXT_ITEM: ${{ toJson(steps) }}
         run: |
           go get app
-          echo " toJson(steps)" 
+          echo "this is the context item ${CONTEXT_ITEM}"
       - name: building 
         run: go build
       - name: run linting 
