@@ -35,9 +35,10 @@ jobs:
       - name: debug
         env:
           CONTEXT_ITEM: ${{ toJson(steps) }}
-          lll: ${{ (steps.go-paths.outputs.gomodcache) }}
+          lll: "echo ${{ steps.go-paths.outputs.gomodcache }}"
           
-          ggg: ${{join(steps.go-paths.outputs.*, '\n')}}
+          ggg: ${{join(steps.go-paths.outputs.gocache, ' ') }}
+          
           sss: $(steps.go-paths.outputs.gomodcache)
         run : |
           echo "Go version: $(go version)"
