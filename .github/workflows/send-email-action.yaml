@@ -1,0 +1,44 @@
+name: this wf  will using the send-email-action
+on:
+  release:
+    types: 
+      - published
+  push:
+    branches:
+      - feature/email
+env:
+  SUBJECT: "New Release ${{ github.repository }}:${{ github.ref_name }}"
+  FROM_EMAIL: mi156225@gmail.com
+  TO_EMAIL: swe.mustafaibrahim@gmail.com
+
+jobs:
+  show-mial-info:
+    name: show mail info
+    runs-on: ubuntu-latest
+    steps:
+      - name: print the mail info
+        run: |
+          echo "subject: ${SUBJECT}"
+          echo "from-email: ${FROM_EMAIL}"
+          echo "to-email: ${TO_EMAIL}"
+          echo "markdown-body: ${{ github.event.release.body }}"
+          echo "api-key: ${{ secrets.EMAIL_API_KEY }}"
+  # this is the job that will send the email
+  send-mail:
+    name: send mail
+    runs-on: ubuntu-latest
+    steps:
+      - name: using the mail action
+        uses: Mustafaibra/Email-Notification-on-releases-github-practies@main
+        with:
+          api-key: ${{ secrets.EMAIL_API_KEY}}
+          subject: ${SUBJECT}
+          from-email: ${FROM_EMAIL}
+          to-email: ${TO_EMAIL}
+          markdown-body: ${{ github.actor }}
+          
+      
+        
+
+          
+
