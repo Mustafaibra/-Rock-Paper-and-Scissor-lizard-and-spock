@@ -2,7 +2,7 @@ name: using reusable workflows
 on:
   push:
     branches:
-      - main
+      - feature 
 
 jobs:
   centralized-job:
