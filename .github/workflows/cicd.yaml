@@ -1,0 +1,29 @@
+name: continous integration and continous delivery for go proje
+on:
+  pull_request:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  ci:
+    name: continous integration
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working_directory: golang_app
+    steps:
+      - name: clone 
+        uses: actions/checkout@v3.1.0
+      - name: get dep
+        run: go get app
+      - name: building 
+        run: go build
+      - name: run linting 
+        uses: golangci/golangci-lint-action@v3
+        with:
+          working-directory: golang_app
+      - name: run tests
+        run: go test   
