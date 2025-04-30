@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-COPY app /
+COPY . /app
 
 RUN chmod +x /app
 
