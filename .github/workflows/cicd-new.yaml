@@ -43,3 +43,30 @@ jobs:
         with:
           name: golang_app
           path: golang_app/app
+  cd:
+    name: Continuous Delivery
+    needs: ci
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docker_image
+    steps:
+      - name: Clone
+        uses: actions/checkout@v4
+      - name: get artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: golang_app
+          path: docker_image
+      - name: login to docker rig
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login ghcr.io -u $ --password-stdin
+      - name: Build Docker Image
+        run: |
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+          VERSION=$(echo "${{github.ref}}" | sed -e 's,.*/\(.*\),\1,')
+          ls -R
+          docker build . --tag $IMAGE_ID:$VERSION --label "runnumber=${{github.run_id}}" --file Dockerfile 
+          docker push $IMAGE_ID:$VERSION
+          
