@@ -67,6 +67,6 @@ jobs:
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
           VERSION=$(echo "${{github.ref}}" | sed -e 's,.*/\(.*\),\1,')
           ls -R
-          docker build . --tag $IMAGE_ID:$VERSION --label "runnumber=${{github.run_id}}" --file .github/docker_image/Dockerfile 
+          docker build . --tag $IMAGE_ID:$VERSION --label "runnumber=${{github.run_id}}" --file Dockerfile 
           docker push $IMAGE_ID:$VERSION
           
