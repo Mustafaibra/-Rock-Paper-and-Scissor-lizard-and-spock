@@ -1,4 +1,4 @@
-name: Continuous Integration & Delivery
+name: Continuous Integration & Delivery  
 on:
   pull_request:
   workflow_dispatch:
